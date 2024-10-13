@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@keyframes mouve_bas {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes move_haut {
+  0% {
+    transform: translateY(5vh); /* Début légèrement en bas */
+  }
+  100% {
+    transform: translateY(0); /* Position finale */
+  }
+}
+@keyframes rotate_fleur {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.banner {
+  opacity: 0;
+  transition: opacity 2s ease-out, transform 5s ease-out;
+}
+.banner.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: mouve_bas 1s ease-out forwards;
+}
+
+img.banner_logo {
+  animation: move_haut 1s ease-out forwards; /* Animation au chargement */
+}
+
+
+
+
+.story__article::after,
+.story h2::after,
+#studio h2::before,
+#studio h2::after {
+  opacity: 1;
+  animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s; /* Animation après le mouvement */
+}
+
+
+.story h2::before,
+.story__article::before,
+#characters h3,
+#characters,
+#place h3,
+#studio > div::before,
+.site-footer {
+  animation: move_haut 1s ease-out forwards; /* Animation pour ces éléments */
+}
+
+.site-footer::before ,
+.site-footer::after,
+.site-footer ul::after  {
+  opacity: 1;
+  animation:  rotate_fleur 3s linear infinite 1.5s; /* Animation après le mouvement */
+}
+
+
+
+@keyframes bg_place_move_haut {
+  0% {
+    transform: translateY(5vh); /* Animation de décalage pour le conteneur */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.story #place {
+  animation: bg_place_move_haut 1s ease-out forwards; /* Animation pour le conteneur #place */
+  position: relative; /* Position relative pour gérer la superposition */
+}
+.story #place p {
+  position: relative; /* Fixer la position du texte */
+  z-index: 1; /* Assurer que le texte est au-dessus des éléments animés */
+  animation: none; /* Désactiver l'animation pour le texte */
+}/*# sourceMappingURL=style.css.map */

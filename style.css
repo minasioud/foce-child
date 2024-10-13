@@ -25,6 +25,14 @@
     transform: rotate(-360deg);
   }
 }
+@keyframes bg_place_move_haut {
+  0% {
+    transform: translateY(5vh); /* Animation de décalage pour le conteneur */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .banner {
   opacity: 0;
   transition: opacity 2s ease-out, transform 5s ease-out;
@@ -43,28 +51,41 @@ img.banner_logo {
   opacity: 1;
   animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s; /* Animation après le mouvement */
 }
-
-.story h2::before,
-.story h2::after,
-.story__article::before,
-#characters h3,
-#characters,
-#place h3,
-#studio h2::before,
-#studio h2::after,
-#studio > div::before,
-.site-footer {
+.story__article::before {
+  animation: move_haut 1s ease-out forwards; /* Animation pour ces éléments */
+}
+.story h2::after {
+  opacity: 1;
+  animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s; /* Animation après le mouvement */
+}
+.story h2::before {
   animation: move_haut 1s ease-out forwards; /* Animation pour ces éléments */
 }
 
-@keyframes bg_place_move_haut {
-  0% {
-    transform: translateY(5vh); /* Animation de décalage pour le conteneur */
-  }
-  100% {
-    transform: translateY(0);
-  }
+#studio h2::before, #studio h2::after {
+  animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s; /* Animation après le mouvement */
 }
+#studio > div::before {
+  animation: move_haut 1s ease-out forwards; /* Animation pour ces éléments */
+}
+
+#characters h3, #characters {
+  animation: move_haut 1s ease-out forwards; /* Animation pour ces éléments */
+}
+
+#place h3 {
+  animation: move_haut 1s ease-out forwards; /* Animation pour ces éléments */
+}
+
+.site-footer {
+  animation: move_haut 1s ease-out forwards; /* Animation pour ces éléments */
+}
+.site-footer::before, .site-footer::after,
+.site-footer ul::after {
+  opacity: 1;
+  animation: rotate_fleur 3s linear infinite 1.5s; /* Animation après le mouvement */
+}
+
 .story #place {
   animation: bg_place_move_haut 1s ease-out forwards; /* Animation pour le conteneur #place */
   position: relative; /* Position relative pour gérer la superposition */
