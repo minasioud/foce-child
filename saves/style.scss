@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+// Animation Keyframes
+
+// Animation pour faire apparaître l'élément en bas
+@keyframes mouve_bas {
+    0% {
+        opacity: 0; // Au début, l'opacité est 0
+        transform: translateY(-80px); // Déplace l'élément vers le haut
+    }
+    100% {
+        opacity: 1; // À la fin, l'opacité est 1
+        transform: translateY(0); // Retourne à sa position d'origine
+    }
+}
+
+// Animation pour faire monter un élément
+@keyframes move_haut {
+    0% {
+        transform: translateY(5vh); // Déplace vers le bas
+    }
+    100% {
+        transform: translateY(0); // Retourne à sa position d'origine
+    }
+}
+
+// Animation pour faire apparaître du texte en le faisant glisser vers le haut
+@keyframes text_move_haut {
+    0% {
+        opacity: 0; // Au début, l'opacité est 0
+        transform: translateY(5vh); // Déplace l'élément vers le bas
+    }
+    100% {
+        opacity: 1; // À la fin, l'opacité est 1
+        transform: translateY(0); // Retourne à sa position d'origine
+    }
+}
+
+// Animation pour faire tourner un élément
+@keyframes rotate_fleur {
+    0% {
+        transform: rotate(0deg); // Position de départ
+    }
+    100% {
+        transform: rotate(-360deg); // Fait une rotation complète
+    }
+}
+
+// Animation pour le mouvement de fond
+@keyframes bg_place_move_haut {
+    0% {
+        transform: translateY(5vh); // Déplace vers le bas
+    }
+    100% {
+        transform: translateY(0); // Retourne à sa position d'origine
+    }
+}
+
+// Styles pour la bannière
+.banner {
+    opacity: 0; // L'élément est invisible par défaut
+    transition: opacity 2s ease-out, transform 5s ease-out; // Transition pour les effets d'opacité et de transformation
+
+    &.visible { // Lorsque la classe "visible" est ajoutée
+        opacity: 1; // Rendre l'élément visible
+        transform: translateY(0); // Retourne à sa position d'origine
+        animation: mouve_bas 1s ease-out forwards; // Joue l'animation "mouve_bas"
+    }
+}
+
+// Animation pour le logo
+img.banner_logo {
+    animation: move_haut 1s ease-out forwards; // Joue l'animation "move_haut"
+}
+
+// Articles de l'histoire
+.story__article {
+    &::after { // Pour l'élément après l'article
+        opacity: 1; // Rendre visible
+        animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s; // Joue les animations
+ 
+      }
+}
+// Styles pour le conteneur vidéo
+// Styles pour le conteneur vidéo
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;  // Prend toute la hauteur de la fenêtre
+  overflow: hidden;
+
+  // Image de fallback
+  .fallback-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  // Vidéo masquée par défaut
+  #background-video.hidden-video {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
+
+  // Lorsque la vidéo est prête, masquez l'image de fallback
+  &.video-loaded {
+    .fallback-image {
+      display: none;  // Masque l'image
+    }
+
+    #background-video {
+      display: block;  // Affiche la vidéo
+    }
+  }
+}
+
+// Bannière principale
+.banner {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 2s ease-out;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+// Logo dans la bannière
+img.floating-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 300px;
+  animation: move_haut 1s ease-out forwards;
+}
+
+// Animation logo
+@keyframes move_haut {
+  0% {
+    transform: translate(-50%, -50%) translateY(5vh);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+
+
+.video-container, .fallback-image, #background-video, .floating-title {
+  border: 1px solid red;  // Temporaire pour voir où se trouvent les éléments
+}
