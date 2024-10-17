@@ -63,7 +63,15 @@ document.addEventListener("DOMContentLoaded", function() {
 add_action('wp_footer', 'wpb_hook_javascript_footer');
 
 
+// Enqueue SwiperJS and custom swiper initialization script
+function enqueue_custom_swiper_js() {
+    // Swiper CSS
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css');
 
+    // Swiper JS
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array(), null, true);
 
-
-
+    // Custom Swiper initialization script
+    wp_enqueue_script('custom-swiper-js', get_stylesheet_directory_uri() . '/js/custom-swiper.js', array('swiper-js'), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_swiper_js');
