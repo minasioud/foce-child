@@ -2,6 +2,7 @@
 get_header();
 ?>
     <main id="primary" class="site-main">
+        <!--  l'animation video -->
         <section class="banner">
             <div class="video-container parallax-container">
                
@@ -12,68 +13,64 @@ get_header();
             </div>
             <!-- Ajouter une class banner_logo pour ajuster l'animation sur le logo -->
             <img class="floating-title" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
-            
         </section>
 
-
-
-        <!-- Activer le lien vers story -->
+        <!-- Section story ----------------------------------------->
         <section id="story" class="story">
             <h2 class="bg-style"><span class="font-style">L'histoire</span></h2>
-            <!-- parag de la section histoire -->
-            <article id="" class="story__article">
+            <!-- article histoire ---------------------------------->
+            <article id="art-hist" class="story__article">
                 <p><?php echo get_theme_mod('story'); ?></p>
             </article>
+            <!-- article histoire ---------------------------------->
+
+            <!-- article personnages -------------------------------------------->
             <?php
             $args = array(
                 'post_type' => 'characters',
                 'posts_per_page' => -1,
-                'meta_key' => '_main_char_field',
-                'orderby' => 'meta_value_num',
+                'meta_key'  => '_main_char_field',
+                'orderby'   => 'meta_value_num',
+
             );
             $characters_query = new WP_Query($args);
             ?>
 
-            <!-- article personnages -------------------------------------------->
-
             <article id="characters">
                 <div class="main-character">
-                    <h3 class="bg-style-3"><span class="font-style">Les personnages</span></h3>
-                    <?php
-                    $main_character = $characters_query->posts[0];
-                    echo '<figure>';
-                    echo get_the_post_thumbnail($main_character->ID, 'full');
-                    echo '<figcaption>' . esc_html($main_character->post_title) . '</figcaption>';
-                    echo '</figure>';
-                    $characters_query->next_post();
-                    ?>
-                </div>
-                <div class="other-characters swiper-container">
-                    <div class="swiper-wrapper">
-                        <?php
-                        while ($characters_query->have_posts()) {
-                            $characters_query->the_post();
-                            echo '<div class="swiper-slide">';
-                            echo '<figure>';
-                            echo get_the_post_thumbnail(get_the_ID(), 'full');
-                            echo '<figcaption>';
-                            the_title();
-                            echo '</figcaption>';
-                            echo '</figure>';
-                            echo '</div>'; // Fin de swiper-slide
-                        }
-                        ?>
+                    <div class="title-character">
+                        <h3 class="bg-style-3"><span class="font-style">Les personnages</span></h3>
                     </div>
-                    <!-- Boutons de navigation -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <!-- Pagination (optionnel) -->
-                    <div class="swiper-pagination"></div>
+                    <!-- Begin Swiper Container -->    
+                    <div class="swiper-container slide-character">
+                        <div class="swiper-wrapper">
+                            <?php while ($characters_query->have_posts()) {
+                                $characters_query->the_post(); ?>
+                                
+                                <!-- Each character slide -->
+                                <div class="swiper-slide">
+                                    <figure>
+                                        <?php echo get_the_post_thumbnail(get_the_ID(), 'full'); ?>
+                                        <figcaption><?php the_title(); ?></figcaption>
+                                    </figure>
+                                </div>
+                                
+                            <?php } ?>
+                        </div>
+                        <!-- Add navigation arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="pagination-character">
+                        <!-- Add pagination (optional) -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <!-- End Swiper Container -->
                 </div>
             </article>
             
             <!-- FIN article personnages -------------------------------------------->
-
+        <!-- Section story ----------------------------------------->
 
             <article id="place">
                 <div>

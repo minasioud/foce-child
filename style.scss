@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+// Keyframes
 @keyframes mouve_bas {
   0% {
     opacity: 0;
@@ -49,6 +50,7 @@
   }
 }
 
+// Banner
 .banner {
   opacity: 0;
   transition: opacity 2s ease-out, transform 5s ease-out;
@@ -58,37 +60,31 @@
     transform: translateY(0);
     animation: mouve_bas 1s ease-out forwards;
   }
-  &.nobgd{
+
+  &.nobgd {
     background-image: none;
   }
-}
 
-img.banner_logo {
-  animation: move_haut 1s ease-out forwards;
-}
-
-.story__article {
-  &::after {
-    opacity: 1;
-    animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
-  }
-  &::before {
+  img.banner_logo {
     animation: move_haut 1s ease-out forwards;
   }
 }
 
-.story {
-  h2 {
-    &::after {
-      opacity: 1;
-      animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
-    }
-    &::before {
-      animation: move_haut 1s ease-out forwards;
-    }
+// Story Article
+.story__article {
+  &::after,
+  h2::after {
+    opacity: 1;
+    animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
+  }
+
+  &::before,
+  h2::before {
+    animation: move_haut 1s ease-out forwards;
   }
 }
 
+// Studio Section
 #studio {
   h2 {
     &::before,
@@ -97,28 +93,19 @@ img.banner_logo {
     }
   }
 
-  > div {
-    &::before {
-      animation: move_haut 1s ease-out forwards;
-    }
-  }
-}
-
-#characters {
-  h3 {
+  > div::before {
     animation: move_haut 1s ease-out forwards;
   }
 }
 
-#place {
-  h3 {
-    animation: move_haut 1s ease-out forwards;
-  }
+// Characters Section
+#characters h3,
+#place h3,
+.site-footer {
+  animation: move_haut 1s ease-out forwards;
 }
 
 .site-footer {
-  animation: move_haut 1s ease-out forwards;
-
   &::before,
   &::after,
   ul::after {
@@ -127,7 +114,7 @@ img.banner_logo {
   }
 }
 
-/* Classe pour le fond */
+// Background Style
 .bg-style {
   background-image: url("/wp-content/themes/foce/assets/images/purple_title_bg.png");
   background-color: #FFF5E9;
@@ -138,28 +125,19 @@ img.banner_logo {
   margin: 0;
 }
 
-/* Classe pour la police de caractères */
-.font-style {
+// Font Styles
+.font-style,
+.font-style1,
+.font-style2 {
   display: inline-block;
   animation: text_move_haut 1s ease-out forwards;
 }
 
-/* Classe pour le fond */
 .bg-style-3 {
   background-image: url("/wp-content/themes/foce/assets/images/orange_characters_bg.png");
 }
 
-/* Classes pour la police de caractères */
-.font-style1 {
-  display: inline-block;
-  animation: text_move_haut 1s ease-out forwards;
-}
-
-.font-style2 {
-  display: inline-block;
-  animation: text_move_haut 3s ease-out forwards;
-}
-
+// Video Container
 .video-container {
   position: absolute;
   top: 0;
@@ -173,11 +151,10 @@ img.banner_logo {
 #background-video {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
 }
 
-/* Titre flottant */
+// Floating Title
 .floating-title {
   position: absolute;
   top: 50%;
@@ -188,63 +165,143 @@ img.banner_logo {
   z-index: 2;
   text-align: center;
   animation: floating 3s ease-in-out infinite;
-}
 
-/* Animation du titre flottant */
-@keyframes floating {
-  0% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-10px);
-  }
-  100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-}
-
-/*# sourceMappingURL=style.css.map */
-
-.parallax-container {
-  position: relative;
-  overflow: hidden;
-  height: 120vh; /* La vidéo occupe toute la hauteur de la fenêtre */
-  z-index: 1;
-}
-
-/* Style pour la vidéo avec effet parallax .video-container */
-.parallax-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  object-fit: cover;
-}
-
-/* Style pour la swiper-container */
-.swiper-container {
-  width: 50%; /* Largeur complète */
-  height: 200px; /* Ajustez la hauteur selon vos besoins */
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center; /* Centrer le contenu */
-    align-items: center; /* Centrer verticalement */
-    background: rgba(255, 255, 255, 0.5); /* Couleur de fond pour les diapositives */
-    border-radius: 10px; /* Arrondir les coins */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
-
-    img {
-      display: block;
-      width: 100%; /* Pour que l'image prenne toute la largeur de la diapositive */
-      height: auto; /* Pour garder les proportions de l'image */
-      border-radius: 10px; /* Arrondir les coins de l'image */
+  @keyframes floating {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-10px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
     }
   }
 }
-//fin
+
+// Parallax Container
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  min-height: 806px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .parallax-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  @media (max-width: 768px) {
+    height: 100vh; // Assurer que ça reste 100vh sur les petits écrans
+  }
+}
+
+// Character Stories
+.story #characters {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+
+  figure {
+    width: 100%; // Assurer que l'image occupe toute la largeur du slide
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.main-character {
+  // border: 3px solid rgb(255, 0, 255); // Pour voir les limites du conteneur
+}
+
+.title-character {
+  width: 50%;
+  align-items: center;
+  margin: 0;
+}
+
+.slide-character {
+  width: 100vw; // Pour que le conteneur prenne toute la largeur de la fenêtre
+  margin: 0;
+  padding: 0;
+}
+
+// Pagination Character
+.pagination-character {
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  align-items: center;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 10px; // Espacement entre les points
+  left: 50%;
+  transform: translateX(-50%); // Centrer complètement horizontalement
+}
+
+// Swiper Container
+.swiper-container {
+  width: 90vw; // 100% de la largeur de la fenêtre
+  height: auto; // Ajuste la hauteur automatiquement
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; // Chaque slide prend toute la largeur disponible
+    height: 20vw; // Ajuster la hauteur de manière proportionnelle
+
+    img {
+      display: block;
+      width: 100%; // Pour que l'image prenne toute la largeur de la diapositive
+      height: auto; // Pour garder les proportions de l'image
+      border-radius: 10px; // Arrondir les coins de l'image
+    }
+  }
+}
+
+// Pagination Bullets
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+
+  &-active {
+    background-color: #ff5722; // Couleur du point actif
+    opacity: 1; // Pleine opacité pour le point actif
+    transform: scale(1.2); // Agrandir légèrement le point actif
+    transition: background-color 0.3s, transform 0.3s; // Transition pour un effet fluide
+  }
+}
+
+// Navigation Buttons
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff5722; // Couleur du texte
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.8); // Couleur de fond plus sombre au survol
+  }
+}

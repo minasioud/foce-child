@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @keyframes mouve_bas {
   0% {
     opacity: 0;
@@ -55,24 +54,17 @@
 .banner.nobgd {
   background-image: none;
 }
-
-img.banner_logo {
+.banner img.banner_logo {
   animation: move_haut 1s ease-out forwards;
 }
 
-.story__article::after {
+.story__article::after,
+.story__article h2::after {
   opacity: 1;
   animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
 }
-.story__article::before {
-  animation: move_haut 1s ease-out forwards;
-}
-
-.story h2::after {
-  opacity: 1;
-  animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
-}
-.story h2::before {
+.story__article::before,
+.story__article h2::before {
   animation: move_haut 1s ease-out forwards;
 }
 
@@ -83,24 +75,18 @@ img.banner_logo {
   animation: move_haut 1s ease-out forwards;
 }
 
-#characters h3 {
-  animation: move_haut 1s ease-out forwards;
-}
-
-#place h3 {
-  animation: move_haut 1s ease-out forwards;
-}
-
+#characters h3,
+#place h3,
 .site-footer {
   animation: move_haut 1s ease-out forwards;
 }
+
 .site-footer::before, .site-footer::after,
 .site-footer ul::after {
   opacity: 1;
   animation: rotate_fleur 3s linear infinite 1.5s;
 }
 
-/* Classe pour le fond */
 .bg-style {
   background-image: url("/wp-content/themes/foce/assets/images/purple_title_bg.png");
   background-color: #FFF5E9;
@@ -111,26 +97,15 @@ img.banner_logo {
   margin: 0;
 }
 
-/* Classe pour la police de caractères */
-.font-style {
-  display: inline-block;
-  animation: text_move_haut 1s ease-out forwards;
-}
-
-/* Classe pour le fond */
-.bg-style-3 {
-  background-image: url("/wp-content/themes/foce/assets/images/orange_characters_bg.png");
-}
-
-/* Classes pour la police de caractères */
-.font-style1 {
-  display: inline-block;
-  animation: text_move_haut 1s ease-out forwards;
-}
-
+.font-style,
+.font-style1,
 .font-style2 {
   display: inline-block;
-  animation: text_move_haut 3s ease-out forwards;
+  animation: text_move_haut 1s ease-out forwards;
+}
+
+.bg-style-3 {
+  background-image: url("/wp-content/themes/foce/assets/images/orange_characters_bg.png");
 }
 
 .video-container {
@@ -147,10 +122,9 @@ img.banner_logo {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 
-/* Titre flottant */
 .floating-title {
   position: absolute;
   top: 50%;
@@ -162,8 +136,6 @@ img.banner_logo {
   text-align: center;
   animation: floating 3s ease-in-out infinite;
 }
-
-/* Animation du titre flottant */
 @keyframes floating {
   0% {
     transform: translate(-50%, -50%) translateY(0);
@@ -179,41 +151,116 @@ img.banner_logo {
 .parallax-container {
   position: relative;
   overflow: hidden;
-  height: 120vh; /* La vidéo occupe toute la hauteur de la fenêtre */
+  height: 100vh;
   z-index: 1;
+  margin: 0;
+  padding: 0;
+  min-height: 806px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/* Style pour la vidéo avec effet parallax .video-container */
-.parallax-video {
+.parallax-container .parallax-video {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100%;
+  height: 100%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
-  height: auto;
   transform: translate(-50%, -50%);
-  z-index: -1;
   -o-object-fit: cover;
      object-fit: cover;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .parallax-container {
+    height: 100vh;
+  }
 }
 
-/* Style pour la swiper-container */
+.story #characters {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+.story #characters figure {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.title-character {
+  width: 50%;
+  align-items: center;
+  margin: 0;
+}
+
+.slide-character {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center;     /* Centre verticalement */
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination-character {
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  align-items: center;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .swiper-container {
-  width: 50%; /* Largeur complète */
-  height: 200px; /* Ajustez la hauteur selon vos besoins */
+  width: 90vw; /* Ou ajustez cette valeur comme nécessaire */
+  height: auto; /* Ajustez la hauteur si nécessaire */
+  margin: 0 auto; /* Centre le conteneur du slider */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .swiper-container .swiper-slide {
   display: flex;
-  justify-content: center; /* Centrer le contenu */
-  align-items: center; /* Centrer verticalement */
-  background: rgba(255, 255, 255, 0.5); /* Couleur de fond pour les diapositives */
-  border-radius: 10px; /* Arrondir les coins */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20vw;
 }
 .swiper-container .swiper-slide img {
   display: block;
-  width: 100%; /* Pour que l'image prenne toute la largeur de la diapositive */
-  height: auto; /* Pour garder les proportions de l'image */
-  border-radius: 10px; /* Arrondir les coins de l'image */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+.swiper-pagination-bullet-active {
+  background-color: #ff5722;
+  opacity: 1;
+  transform: scale(1.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff5722;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: rgba(0, 0, 0, 0.8);
 }/*# sourceMappingURL=style.css.map */
