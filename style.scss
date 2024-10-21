@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Keyframes
+// ANIMATIONS
 @keyframes mouve_bas {
   0% {
     opacity: 0;
@@ -50,7 +50,7 @@
   }
 }
 
-// Banner
+/***************************************** Banner Images *******************/
 .banner {
   opacity: 0;
   transition: opacity 2s ease-out, transform 5s ease-out;
@@ -70,7 +70,10 @@
   }
 }
 
-// Story Article
+.mobile-banner-image {
+  display: none;
+}
+
 .story__article {
   &::after,
   h2::after {
@@ -84,7 +87,6 @@
   }
 }
 
-// Studio Section
 #studio {
   h2 {
     &::before,
@@ -98,7 +100,6 @@
   }
 }
 
-// Characters Section
 #characters h3,
 #place h3,
 .site-footer {
@@ -106,7 +107,7 @@
 }
 
 .site-footer {
-  &::before,
+  &::before, 
   &::after,
   ul::after {
     opacity: 1;
@@ -114,7 +115,6 @@
   }
 }
 
-// Background Style
 .bg-style {
   background-image: url("/wp-content/themes/foce/assets/images/purple_title_bg.png");
   background-color: #FFF5E9;
@@ -125,7 +125,6 @@
   margin: 0;
 }
 
-// Font Styles
 .font-style,
 .font-style1,
 .font-style2 {
@@ -134,10 +133,9 @@
 }
 
 .bg-style-3 {
-  background-image: url("/wp-content/themes/foce/assets/images/orange_characters_bg.png");
+  background-image: url("./assets/images/orange_characters_bg.png");
 }
 
-// Video Container
 .video-container {
   position: absolute;
   top: 0;
@@ -151,10 +149,10 @@
 #background-video {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
-// Floating Title
 .floating-title {
   position: absolute;
   top: 50%;
@@ -165,21 +163,20 @@
   z-index: 2;
   text-align: center;
   animation: floating 3s ease-in-out infinite;
+}
 
-  @keyframes floating {
-    0% {
-      transform: translate(-50%, -50%) translateY(0);
-    }
-    50% {
-      transform: translate(-50%, -50%) translateY(-10px);
-    }
-    100% {
-      transform: translate(-50%, -50%) translateY(0);
-    }
+@keyframes floating {
+  0% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-10px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
   }
 }
 
-// Parallax Container
 .parallax-container {
   position: relative;
   overflow: hidden;
@@ -192,42 +189,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  .parallax-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -1;
-  }
-
-  @media (max-width: 768px) {
-    height: 100vh; // Assurer que ça reste 100vh sur les petits écrans
-  }
 }
 
-// Character Stories
-.story #characters {
+.parallax-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
   min-width: 100%;
   min-height: 100%;
+  transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+  object-fit: cover;
+  z-index: -1;
+}
 
-  figure {
-    width: 100%; // Assurer que l'image occupe toute la largeur du slide
+.story {
+  #characters {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  #characters figure {
+    width: 100%;
     height: auto;
     padding: 0;
     margin: 0;
   }
-}
-
-.main-character {
-  // border: 3px solid rgb(255, 0, 255); // Pour voir les limites du conteneur
 }
 
 .title-character {
@@ -236,72 +227,154 @@
   margin: 0;
 }
 
-.slide-character {
-  width: 100vw; // Pour que le conteneur prenne toute la largeur de la fenêtre
-  margin: 0;
-  padding: 0;
-}
-
-// Pagination Character
-.pagination-character {
-  margin: 0;
-  padding: 0;
-  width: 80%;
-  align-items: center;
-  height: 50px;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  gap: 10px; // Espacement entre les points
-  left: 50%;
-  transform: translateX(-50%); // Centrer complètement horizontalement
-}
-
-// Swiper Container
+/***************************************** Slide Personnages *******************/
 .swiper-container {
-  width: 90vw; // 100% de la largeur de la fenêtre
-  height: auto; // Ajuste la hauteur automatiquement
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: auto;
   margin: 0;
   padding: 0;
+}
+
+.pagination-character {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  gap: 50px;
+}
+
+.swiper-container .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  opacity: 1;
+}
 
-  .swiper-slide {
+.swiper-container .swiper-slide img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ff5722;
+  opacity: 1;
+  transform: scale(1.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff5722;
+  transition: color 0.3s;
+  font-size: 24px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/*********************************************** Tablettes et Smartphones ***********************************************/
+@media all and (max-width: 700px) {
+  .banner {
+    width: 100%;
+    max-width: 700px;
+    min-height: auto;
+    background-size: contain;
+    aspect-ratio: 2880 / 1612;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; // Chaque slide prend toute la largeur disponible
-    height: 20vw; // Ajuster la hauteur de manière proportionnelle
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
 
-    img {
-      display: block;
-      width: 100%; // Pour que l'image prenne toute la largeur de la diapositive
-      height: auto; // Pour garder les proportions de l'image
-      border-radius: 10px; // Arrondir les coins de l'image
+    .banner-image {
+      width: 100%;
+      height: auto;
     }
   }
-}
 
-// Pagination Bullets
-.swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-
-  &-active {
-    background-color: #ff5722; // Couleur du point actif
-    opacity: 1; // Pleine opacité pour le point actif
-    transform: scale(1.2); // Agrandir légèrement le point actif
-    transition: background-color 0.3s, transform 0.3s; // Transition pour un effet fluide
+  .mobile-banner-image {
+    display: block;
   }
-}
 
-// Navigation Buttons
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff5722; // Couleur du texte
+  .parallax-container,
+  .parallax-video,
+  #background-video {
+    display: none;
+  }
 
-  &:hover {
-    color: rgba(0, 0, 0, 0.8); // Couleur de fond plus sombre au survol
+  .floating-title {
+    top: 60%;
+    font-size: 3rem;
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  .swiper-container {
+    max-width: 700px;
+  }
+
+  .pagination-character {
+    height: 50px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    gap: 50px;
+  }
+
+  .swiper-container .swiper-slide {
+    width: 100%;
+    height: 40vw;
+    max-height: 500px;
+  }
+
+  .title-character span {
+    font-size: 2rem;
+  }
+
+  .bg-style-3 {
+    width: 120vw;
+    max-width: 150vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  #studio h2 {
+    font-size: 2.3rem;
   }
 }

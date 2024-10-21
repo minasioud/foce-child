@@ -42,6 +42,7 @@
     transform: translateY(0);
   }
 }
+/***************************************** Banner Images *******************/
 .banner {
   opacity: 0;
   transition: opacity 2s ease-out, transform 5s ease-out;
@@ -56,6 +57,10 @@
 }
 .banner img.banner_logo {
   animation: move_haut 1s ease-out forwards;
+}
+
+.mobile-banner-image {
+  display: none;
 }
 
 .story__article::after,
@@ -105,7 +110,7 @@
 }
 
 .bg-style-3 {
-  background-image: url("/wp-content/themes/foce/assets/images/orange_characters_bg.png");
+  background-image: url("./assets/images/orange_characters_bg.png");
 }
 
 .video-container {
@@ -122,7 +127,7 @@
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .floating-title {
@@ -136,6 +141,7 @@
   text-align: center;
   animation: floating 3s ease-in-out infinite;
 }
+
 @keyframes floating {
   0% {
     transform: translate(-50%, -50%) translateY(0);
@@ -147,7 +153,6 @@
     transform: translate(-50%, -50%) translateY(0);
   }
 }
-
 .parallax-container {
   position: relative;
   overflow: hidden;
@@ -161,7 +166,8 @@
   justify-content: center;
   align-items: center;
 }
-.parallax-container .parallax-video {
+
+.parallax-video {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -171,13 +177,8 @@
   min-height: 100%;
   transform: translate(-50%, -50%);
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   z-index: -1;
-}
-@media (max-width: 768px) {
-  .parallax-container {
-    height: 100vh;
-  }
 }
 
 .story #characters {
@@ -199,56 +200,67 @@
   margin: 0;
 }
 
-.slide-character {
+/***************************************** Slide Personnages *******************/
+.swiper-container {
   display: flex;
-  justify-content: center; /* Centre horizontalement */
-  align-items: center;     /* Centre verticalement */
-  width: 100vw;
-  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: auto;
   margin: 0;
   padding: 0;
 }
 
 .pagination-character {
-  margin: 0;
-  padding: 0;
-  width: 80%;
-  align-items: center;
-  height: 50px;
-  position: absolute;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  height: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  gap: 50px;
 }
 
-.swiper-container {
-  width: 90vw; /* Ou ajustez cette valeur comme nécessaire */
-  height: auto; /* Ajustez la hauteur si nécessaire */
-  margin: 0 auto; /* Centre le conteneur du slider */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .swiper-container .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 20vw;
+  max-height: 500px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  opacity: 1;
 }
+
 .swiper-container .swiper-slide img {
-  display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 0.6;
 }
+
 .swiper-pagination-bullet-active {
   background-color: #ff5722;
   opacity: 1;
@@ -259,8 +271,74 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: #ff5722;
+  transition: color 0.3s;
+  font-size: 24px;
 }
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   color: rgba(0, 0, 0, 0.8);
+}
+
+/*********************************************** Tablettes et Smartphones ***********************************************/
+@media all and (max-width: 700px) {
+  .banner {
+    width: 100%;
+    max-width: 700px;
+    min-height: auto;
+    background-size: contain;
+    aspect-ratio: 2880/1612;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+  .banner .banner-image {
+    width: 100%;
+    height: auto;
+  }
+  .mobile-banner-image {
+    display: block;
+  }
+  .parallax-container,
+  .parallax-video,
+  #background-video {
+    display: none;
+  }
+  .floating-title {
+    top: 60%;
+    font-size: 3rem;
+    animation: floating 3s ease-in-out infinite;
+  }
+  .swiper-container {
+    max-width: 700px;
+  }
+  .pagination-character {
+    height: 50px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    gap: 50px;
+  }
+  .swiper-container .swiper-slide {
+    width: 100%;
+    height: 40vw;
+    max-height: 500px;
+  }
+  .title-character span {
+    font-size: 2rem;
+  }
+  .bg-style-3 {
+    width: 120vw;
+    max-width: 150vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  #studio h2 {
+    font-size: 2.3rem;
+  }
 }/*# sourceMappingURL=style.css.map */
