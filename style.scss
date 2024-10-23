@@ -1,6 +1,3 @@
-@charset "UTF-8";
-
-// ANIMATIONS
 @keyframes mouve_bas {
   0% {
     opacity: 0;
@@ -54,50 +51,46 @@
 .banner {
   opacity: 0;
   transition: opacity 2s ease-out, transform 5s ease-out;
+}
 
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: mouve_bas 1s ease-out forwards;
-  }
+.banner.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: mouve_bas 1s ease-out forwards;
+}
 
-  &.nobgd {
-    background-image: none;
-  }
+.banner.nobgd {
+  background-image: none;
+}
 
-  img.banner_logo {
-    animation: move_haut 1s ease-out forwards;
-  }
+.banner img.banner_logo {
+  animation: move_haut 1s ease-out forwards;
 }
 
 .mobile-banner-image {
   display: none;
 }
 
-.story__article {
-  &::after,
-  h2::after {
-    opacity: 1;
-    animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
-  }
-
-  &::before,
-  h2::before {
-    animation: move_haut 1s ease-out forwards;
-  }
+.story__article::after,
+.story__article h2::after,
+.bg-style::after {
+  opacity: 1;
+  animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
 }
 
-#studio {
-  h2 {
-    &::before,
-    &::after {
-      animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
-    }
-  }
+.story__article::before,
+.story__article h2::before,
+.bg-style::before {
+  animation: move_haut 1s ease-out forwards;
+}
 
-  > div::before {
-    animation: move_haut 1s ease-out forwards;
-  }
+#studio h2::before,
+#studio h2::after {
+  animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
+}
+
+#studio > div::before {
+  animation: move_haut 1s ease-out forwards;
 }
 
 #characters h3,
@@ -106,13 +99,11 @@
   animation: move_haut 1s ease-out forwards;
 }
 
-.site-footer {
-  &::before, 
-  &::after,
-  ul::after {
-    opacity: 1;
-    animation: rotate_fleur 3s linear infinite 1.5s;
-  }
+.site-footer::before,
+.site-footer::after,
+.site-footer ul::after {
+  opacity: 1;
+  animation: rotate_fleur 3s linear infinite 1.5s;
 }
 
 .bg-style {
@@ -205,20 +196,18 @@
   z-index: -1;
 }
 
-.story {
-  #characters {
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-    min-height: 100%;
-  }
+.story #characters {
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
 
-  #characters figure {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    margin: 0;
-  }
+.story #characters figure {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
 }
 
 .title-character {
@@ -230,7 +219,6 @@
 /***************************************** Slide Personnages *******************/
 .swiper-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -239,14 +227,14 @@
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  position: relative;
 }
 
 .swiper-wrapper {
   width: 100%;
   height: auto;
   margin: 0;
-  padding: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .pagination-character {
@@ -265,7 +253,8 @@
   justify-content: center;
   align-items: center;
   max-height: 500px;
-  box-sizing: border-box;
+  width: 100%; /* ou un autre pourcentage approprié */
+  box-sizing: border-box; /* Inclure les marges et padding dans la taille */
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -277,6 +266,7 @@
   width: 100%;
   max-width: 100%;
   height: auto;
+  -o-object-fit: contain;
   object-fit: contain;
 }
 
@@ -306,6 +296,55 @@
   color: rgba(0, 0, 0, 0.8);
 }
 
+/***************************************** FIN Slide Personnages *******************/
+/***************************************** article LIEU ******************/
+.story #place {
+  display: flex;
+  background-image: url("./assets/images/Studio_Koukaki-image_place.png");
+}
+
+.story .floating-lieu-nuage-1 {
+  position: absolute;
+  left: 83%;
+  transform: translate(-50%, 57%); /* déplacer horizontalement mais pas verticalement par rapport à sa propre largeur et hauteur */
+  z-index: 2;
+  animation: floatingX 3s ease-in-out infinite;
+}
+
+@keyframes floatingX {
+  0% {
+    transform: translate(-50%, 57%) translateX(0);
+  }
+  50% {
+    transform: translate(-50%, 57%) translateX(-300px);
+  }
+  100% {
+    transform: translate(-50%, 57%) translateX(0);
+  }
+}
+
+.story .floating-lieu-nuage-2 {
+  position: absolute;
+  left: 60%;
+  transform: translate(-50%, 450%); /* déplacer horizontalement mais pas verticalement par rapport à sa propre largeur et hauteur */
+  z-index: 2;
+  animation: floating2X 3s ease-in-out infinite;
+}
+
+@keyframes floating2X {
+  0% {
+    transform: translate(-50%, 450%) translateX(0);
+  }
+  50% {
+    transform: translate(-50%, 450%) translateX(-300px);
+  }
+  100% {
+    transform: translate(-50%, 450%) translateX(0);
+  }
+}
+
+/***************************************** FIN article LIEU ******************/
+
 /*********************************************** Tablettes et Smartphones ***********************************************/
 @media all and (max-width: 700px) {
   .banner {
@@ -313,7 +352,7 @@
     max-width: 700px;
     min-height: auto;
     background-size: contain;
-    aspect-ratio: 2880 / 1612;
+    aspect-ratio: 2880/1612;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -322,11 +361,11 @@
     padding: 0;
     margin: 0;
     pointer-events: none;
+  }
 
-    .banner-image {
-      width: 100%;
-      height: auto;
-    }
+  .banner .banner-image {
+    width: 100%;
+    height: auto;
   }
 
   .mobile-banner-image {
@@ -377,4 +416,33 @@
   #studio h2 {
     font-size: 2.3rem;
   }
+
+  /***************************************** article LIEU ******************/
+  .story #place {
+    display: flex;
+    background-image: url("./assets/images/Studio_Koukaki-image_place.png");
+    width: 100%;
+    max-width: 700px;
+    min-height: auto;
+    background-size: cover;
+    aspect-ratio: 2880/1612;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .story .floating-lieu-nuage-1 {
+    animation: none;
+    display: none;
+  }
+
+  .story .floating-lieu-nuage-2 {
+    animation: none;
+    display: none;
+  }
+  /***************************************** FIN article LIEU ******************/
 }

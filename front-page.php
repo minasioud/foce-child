@@ -18,12 +18,12 @@ get_header();
 
         <!-- Section story ----------------------------------------->
         <section id="story" class="story">
-            <h2 class="bg-style"><span class="font-style">L'histoire</span></h2>
             <!-- article histoire ---------------------------------->
+            <h2 class="bg-style"><span class="font-style">L'histoire</span></h2>
             <article id="art-hist" class="story__article">
                 <p><?php echo get_theme_mod('story'); ?></p>
             </article>
-            <!-- article histoire ---------------------------------->
+            <!-- FIN article histoire ---------------------------------->
 
             <!-- article personnages -------------------------------------------->
             <?php
@@ -47,7 +47,6 @@ get_header();
                         <div class="swiper-wrapper">
                             <?php while ($characters_query->have_posts()) {
                                 $characters_query->the_post(); ?>
-                                
                                 <!-- Each character slide -->
                                 <div class="swiper-slide">
                                     <figure>
@@ -57,32 +56,44 @@ get_header();
                                         <figcaption><?php the_title(); ?></figcaption>
                                     </figure>
                                 </div>
-                                
                             <?php } ?>
                         </div>
-                        <!-- Add navigation arrows -->
+                        <!-- Add navigation arrows 
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     
                         <div class="pagination-character">
-                            <!-- Add pagination (optional) -->
+                             Add pagination (optional) 
                             <div class="swiper-pagination"></div>
-                        </div>
+                        </div>-->
                     </div>
                     <!-- End Swiper Container -->
                 </div>
-            </article>
-            
+            </article> 
             <!-- FIN article personnages -------------------------------------------->
-        <!-- Section story ----------------------------------------->
+            
+            <!-- Article lieu ----------------------------------------->
 
-            <article id="place">
-                <div>
-                    <h3>Le Lieu</h3>
+            <article id="place" class="lieu-container">
+                
+                <div >
+                    <h3 class="bg-style-3"><span class="font-style">Le Lieu</span></h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
+                   
+                <!-- Ajouter une class lieu nuage pour ajuster l'animation -->
+                
+                <img class="floating-lieu-nuage-1" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/nuage1.png'; ?> " alt="nuage1">
+
+                <img class="floating-lieu-nuage-2" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/nuage2.png'; ?> " alt="nuage2">
+               
+                
+            
             </article>
+            <!-- FIN Article lieu -------------------------------------------->
         </section>
+        <!-- Section story ----------------------------------------->
+      
         <section id="studio">
             <h2 class="bg-style"><span class="font-style1">Studio</span> <span class="font-style2">Koukaki</span></h2>
             <div>
