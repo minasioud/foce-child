@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @keyframes mouve_bas {
   0% {
     opacity: 0;
@@ -225,11 +224,8 @@
 }
 
 .swiper-wrapper {
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .pagination-character {
@@ -248,8 +244,8 @@
   justify-content: center;
   align-items: center;
   max-height: 500px;
-  width: 100%; /* ou un autre pourcentage approprié */
-  box-sizing: border-box; /* Inclure les marges et padding dans la taille */
+  width: 100%;
+  box-sizing: border-box;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -258,6 +254,7 @@
 }
 
 .swiper-container .swiper-slide img {
+  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -295,47 +292,29 @@
 /***************************************** article LIEU ******************/
 .story #place {
   display: flex;
+  position: relative;
   background-image: url("./assets/images/Studio_Koukaki-image_place.png");
 }
 
 .story .floating-lieu-nuage-1 {
   position: absolute;
-  left: 83%;
-  transform: translate(-50%, 57%); /* déplacer horizontalement mais pas verticalement par rapport à sa propre largeur et hauteur */
   z-index: 2;
-  animation: floatingX 3s ease-in-out infinite;
 }
 
-@keyframes floatingX {
-  0% {
-    transform: translate(-50%, 57%) translateX(0);
-  }
-  50% {
-    transform: translate(-50%, 57%) translateX(-300px);
-  }
-  100% {
-    transform: translate(-50%, 57%) translateX(0);
-  }
+.story .floating-lieu-nuage-1 {
+  position: absolute;
+  left: 107%;
+  transform: translate(-50%, 57%);
+  z-index: 2;
 }
+
 .story .floating-lieu-nuage-2 {
   position: absolute;
-  left: 60%;
-  transform: translate(-50%, 450%); /* déplacer horizontalement mais pas verticalement par rapport à sa propre largeur et hauteur */
+  left: 70%;
+  transform: translate(-50%, 30%);
   z-index: 2;
-  animation: floating2X 3s ease-in-out infinite;
 }
 
-@keyframes floating2X {
-  0% {
-    transform: translate(-50%, 450%) translateX(0);
-  }
-  50% {
-    transform: translate(-50%, 450%) translateX(-300px);
-  }
-  100% {
-    transform: translate(-50%, 450%) translateX(0);
-  }
-}
 /***************************************** FIN article LIEU ******************/
 /*********************************************** Tablettes et Smartphones ***********************************************/
 @media all and (max-width: 700px) {
