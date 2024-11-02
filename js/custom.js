@@ -1,11 +1,37 @@
 document.addEventListener("DOMContentLoaded", (event) => {
 
-
+    //Déclarer toutes les const à l'intérieur du premier DOMContentLoaded pour éviter les erreurs si le DOM n'est pas encore prêt
     const burgerMenu = document.querySelector('.burger-menu');
     const mstory = document.querySelector('.mstory');
     const mcharac = document.querySelector('.mcharac');
+    const mplace = document.querySelector('.mplace');
+    const mstudio = document.querySelector('.mstudio');
     const menuOverlay = document.querySelector('.menu-overlay');
 
+    // Slider animation
+    const slider = document.querySelector('.banner');
+
+    // Gestion de la vidéo mobile / image de bannière
+    const video = document.querySelector('#background-video');
+    const mobileBannerImage = document.querySelector('.mobile-banner-image');
+
+    //Déclaration const parallax de la vidéo
+    const parallaxContainer = document.querySelector('.parallax-container');
+    const parallaxVideo = document.querySelector('.parallax-video');
+
+    //Déclaration const nuage1 et nuage2
+    const nuage1 = document.querySelector('.floating-lieu-nuage-1');
+    const nuage2 = document.querySelector('.floating-lieu-nuage-2');
+    const positionNuage = document.querySelector('#place');
+
+    // Sélectionne le titre de la section histoire
+    const storyTitle = document.querySelector('.hist-title.hidden');
+
+    // Sélectionne le titre de la section studio
+    const studioTitle1 = document.querySelector('.studio-title1.hidden');
+    const studioTitle2 = document.querySelector('.studio-title2.hidden');
+
+    // Fonction de basculement du menu
     function toggleMenu() {
         document.body.classList.toggle('menu-open'); // Ajoute/Retire la classe menu-open
     }
@@ -14,18 +40,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
         burgerMenu.addEventListener('click', toggleMenu);
         mstory.addEventListener('click', toggleMenu);
         mcharac.addEventListener('click', toggleMenu);
+        mplace.addEventListener('click', toggleMenu);
+        mstudio.addEventListener('click', toggleMenu);
     }
 
 
     // Slider animation
-    const slider = document.querySelector('.banner');
     if (slider) {
         slider.classList.add('visible'); // Ajouter la classe "visible" pour déclencher l'animation
     }
 
-    const video = document.querySelector('#background-video');
-    const mobileBannerImage = document.querySelector('.mobile-banner-image');
 
+    // Gestion de la vidéo mobile / image de bannière
     function handleVideoOnMobile() {
         if (window.innerWidth <= 700) {
             if (video) {
@@ -87,71 +113,69 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 modifier: 1, // Ajuste la puissance de l'effet
                 slideShadows: false, // Ajouter des ombres aux diapositives
             },
-
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
         });
     }
 
-});
+    //JS Animation titre histoire
+    // Fonction pour ajouter l'animation d'apparition
+    function observeTitle(title) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.5 });
 
-
-const nuage1 = document.querySelector('.floating-lieu-nuage-1');
-const nuage2 = document.querySelector('.floating-lieu-nuage-2');
-const positionNuage = document.querySelector('#place');
-const positionHistoire = document.querySelector('#story');
-const positionHistoiretitre = document.querySelector('#story').querySelector('.bg-style').querySelector('span');
-
-// Attendre que le DOM soit complètement chargé
-document.addEventListener('scroll', () => {
-    // Récupérer la position de défilement
-    const scrollPosition = window.scrollY;
-    console.log(positionHistoire.offsetTop, scrollPosition);
-    //apparition de titre 
-    const visibleHistoire = scrollPosition - (positionHistoire.offsetTop + 100);
-    if (visibleHistoire > 0) {
-        positionHistoiretitre.classList.add('visible');
+        observer.observe(title);
     }
 
-    // Vérifier que les nuages existent dans le DOM
-    if (nuage1 && nuage2) {
-        // Écouter l'événement de défilement
+    // Observer pour le titre de l'histoire
+    if (storyTitle) { observeTitle(storyTitle); }
 
+    // Observer pour les titres de studio
+    if (studioTitle1) { observeTitle(studioTitle1); }
+    if (studioTitle2) { observeTitle(studioTitle2); }
 
+    // Événement de défilement pour parallax et animation des nuages
+    document.addEventListener('scroll', () => {
 
-        const visible = scrollPosition - (positionNuage.offsetTop + 500);
-        if (visible > 0 && visible < 450) {
+        // Récupérer la position de défilement
+        const scrollPosition = window.scrollY;
 
-            // Calculer la nouvelle position pour chaque nuage
-            nuage1.style.transform = ` translateX(-${visible / 1.5}px)`;
-            nuage2.style.transform = ` translateX(-${visible / 1.5}px)`;
+        // JS Animation  nuage1 et nuage2
+        // Vérifier que les nuages existent dans le DOM
+        if (nuage1 && nuage2) {
+            // Écouter l'événement de défilement
+            const visible = scrollPosition - (positionNuage.offsetTop + 500);
+
+            if (visible > 0 && visible < 450) {
+
+                // Calculer la nouvelle position pour chaque nuage
+                nuage1.style.transform = ` translateX(-${visible / 1.5}px)`;
+                nuage2.style.transform = ` translateX(-${visible / 1.5}px)`;
+            }
         }
 
+        //JS parallax de la vidéo
+        if (parallaxVideo && parallaxContainer) {
+            // Optimisation avec requestAnimationFrame pour le parallax de la vidéo
+            // Récupérer la position de défilement
+            const scrollPosition = window.scrollY;
+            const offset = parallaxContainer.offsetTop;
 
-    }
+            window.requestAnimationFrame(() => {
+                // Ajuster la vitesse de l'effet parallax ici (0.5 est un bon point de départ)
+                const speed = 0.5;
+                const distance = (scrollPosition - offset) * speed;
 
-    const parallaxContainer = document.querySelector('.parallax-container');
-    const parallaxVideo = document.querySelector('.parallax-video');
+                // Appliquer la transformation parallax à la vidéo
+                parallaxVideo.style.transform = `translate3d(-50%, calc(-50% + ${distance}px), 0)`;
+            });
+        }
 
-    if (parallaxVideo && parallaxContainer) {
-        // Optimisation avec requestAnimationFrame pour le parallax de la vidéo
-
-        const scrollPosition = window.scrollY; // Récupérer la position de défilement
-        const offset = parallaxContainer.offsetTop;
-
-        window.requestAnimationFrame(() => {
-            // Ajuster la vitesse de l'effet parallax ici (0.5 est un bon point de départ)
-            const speed = 0.5;
-            const distance = (scrollPosition - offset) * speed;
-
-            // Appliquer la transformation parallax à la vidéo
-            parallaxVideo.style.transform = `translate3d(-50%, calc(-50% + ${distance}px), 0)`;
-        });
-
-    }
+        console.log('Scroll position:', window.scrollY); // Debugging
+    });
 });

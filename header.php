@@ -44,22 +44,17 @@
             <div class="menu-overlay">
                 <ul>
                     <li><img class="mlogo" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/mlogo.png'; ?> " alt="logo Fleurs d'oranger & chats errants"></li>
-                    <li><a href="#story" class="mstory">Histoire</a></li>
+                    <li><a href="#id_story" class="mstory">Histoire</a></li>
                     <li><a href="#characters" class="mcharac">Personnages</a></li>
                     <li><a href="#place" class="mplace">Lieu</a></li>
                     <li><a href="#studio" class="mstudio">Studio Koukaki</a></li>
                 </ul>
-                     <!-- Lien STUDIO KOUKAKI en bas du menu burger -->
-            <div class="menu-footer">
-                <a href="#studio">STUDIO KOUKAKI</a>
-            </div>
+                     
+                <!-- Lien STUDIO KOUKAKI en bas du menu burger -->
+                <div class="menu-footer">
+                    <a href="#studio">STUDIO KOUKAKI</a>
+                </div>
             </div>
                 
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
-  
-	
-        
-        
-
-
