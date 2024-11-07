@@ -107,16 +107,41 @@ document.addEventListener("DOMContentLoaded", (event) => {
             effect: 'coverflow', // Activer l'effet Cover Flow
             grabCursor: true,
             coverflowEffect: {
-                rotate: 50, // Angle de rotation des diapositives
+                rotate: 30, // Angle de rotation des diapositives
                 stretch: 0, // Espace entre les diapositives
                 depth: 100, // Proximité des diapositives
                 modifier: 1, // Ajuste la puissance de l'effet
                 slideShadows: false, // Ajouter des ombres aux diapositives
             },
+
+            // Utilisation de breakpoints pour adapter l'affichage sur mobile
+            breakpoints: {
+                // Configuration pour les écrans de 700px ou moins
+                700: {
+                    slidesPerView: 1, // Affiche une seule diapositive
+                    spaceBetween: 20, // Réduit l'espace entre les diapositives
+                    centeredSlides: true, // Centre la diapositive sur l'écran mobile
+                    coverflowEffect: {
+                        rotate: 0, // Réduit l'angle de rotation sur mobile
+                        depth: 0, // Diminue la profondeur de l'effet sur mobile
+                    },
+                },
+                // Configuration pour les écrans plus grands que 701px
+                701: {
+                    slidesPerView: 'auto', // Affiche plusieurs diapositives
+                    spaceBetween: 50, // Espace entre les diapositives pour un affichage plus espacé
+                    centeredSlides: false, // Désactive le centrage
+                    coverflowEffect: {
+                        rotate: 30, // Angle de rotation plus prononcé
+                        depth: 100, // Proximité des diapositives
+                    },
+                },
+            },
+
         });
     }
 
-    //JS Animation titre histoire
+    //JS Animation titre histoire et les titres de studio
     // Fonction pour ajouter l'animation d'apparition
     function observeTitle(title) {
         const observer = new IntersectionObserver((entries) => {
@@ -144,18 +169,45 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         // Récupérer la position de défilement
         const scrollPosition = window.scrollY;
+        console.log('scrollPosition (initial):', scrollPosition);
 
         // JS Animation  nuage1 et nuage2
         // Vérifier que les nuages existent dans le DOM
         if (nuage1 && nuage2) {
-            // Écouter l'événement de défilement
-            const visible = scrollPosition - (positionNuage.offsetTop + 500);
 
-            if (visible > 0 && visible < 450) {
 
-                // Calculer la nouvelle position pour chaque nuage
-                nuage1.style.transform = ` translateX(-${visible / 1.5}px)`;
-                nuage2.style.transform = ` translateX(-${visible / 1.5}px)`;
+            // Vérifier si on est sur un écran mobile (moins de 700px)
+            if (window.innerWidth < 700) {
+                // Calculer la position visible
+                const visible = scrollPosition - (positionNuage.offsetTop + 200);
+
+                // Afficher les valeurs dans la console
+                console.log('scrollPosition (mobile):', scrollPosition);
+                console.log('positionNuage.offsetTop (mobile):', positionNuage.offsetTop);
+                console.log('visible (mobile):', visible);
+
+
+                // Si le défilement est dans la plage souhaitée (de 0 à 750)
+                if (visible > 0 && visible < 150) {
+                    // Appliquer la transformation pour déplacer les nuages vers la gauche de 300px au maximum
+                    nuage1.style.transform = `translateX(-${visible / 2.5}px)`; // Facteur de 2.5 pour les mobiles
+                    nuage2.style.transform = `translateX(-${visible / 2.5}px)`; // Facteur de 2.5 pour les mobiles
+                }
+            } else {
+                // Calculer la position visible
+                const visible = scrollPosition - (positionNuage.offsetTop + 500);
+
+                // Afficher les valeurs dans la console
+                console.log('scrollPosition (large):', scrollPosition);
+                console.log('positionNuage.offsetTop (large):', positionNuage.offsetTop);
+                console.log('visible (large):', visible);
+
+                // Si l'écran est plus large (au-dessus de 700px)
+                if (visible > 0 && visible < 450) {
+                    // Appliquer la transformation pour déplacer les nuages vers la gauche de 300px au maximum
+                    nuage1.style.transform = `translateX(-${visible / 1.5}px)`; // Facteur de 1.5 pour les écrans larges
+                    nuage2.style.transform = `translateX(-${visible / 1.5}px)`; // Facteur de 1.5 pour les écrans larges
+                }
             }
         }
 

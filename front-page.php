@@ -52,7 +52,7 @@ get_header();
 
                 <div class="main-character">
                     <div class="title-character">
-                        <h3 class="bg-style-3"><span class="font-style-characters">Les personnages</span></h3>
+                        <h3 class="bg-style-characters"><span class="font-style-characters">Les personnages</span></h3>
                     </div>
                     <!-- Begin Swiper Container -->    
                     <div class="swiper-container">

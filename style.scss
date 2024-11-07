@@ -3,9 +3,7 @@ $color_2: #ff8c42;
 $color_3: rgb(3, 3, 3);
 $color_4: #000000;
 $color_5: white;
-$font-family_1: "Roboto Mono", monospace;
-$font-family_2: Roboto Mono;
-$font-family_3: Quicksand;
+
 $background-color_1: #FFD5A2;
 $background-color_2: #333;
 $background-color_3: #FFF5E9;
@@ -104,36 +102,51 @@ $background-color_4: transparent;
     }
 }
 
-/**** <header> *************************************/
-/****** <nav> **************************************/
-/* Masquer tout le menu existant */
-/* Style de la barre de menu */
-/***************** DEBUT menu burger ****************/
-/***************** FIN menu burger ******************/
-/****** </nav> **************************************/
-/**** </header> *************************************/
-/**** <main> ****************************************/
-/****** <slider:banner> *****************************/
-/******** <video> ***********************************/
-/******** </video> **********************************/
-/****** </slider:banner> ****************************/
-/****** <story> *************************************/
-/****** <Article Histoire> **************************/
-/* DEBUT Article Histoire -------------------------------------------*/
-/****** </Article Histoire> *************************/
-/****** <Article Characters> ************************/
-/******** <Swiper Container> ************************/
-/******** </Swiper Container> ***********************/
-/****** </Article Characters> ***********************/
-/****** <Article lieu> ******************************/
-/****** </Article lieu> *****************************/
-/****** </story> ************************************/
-/****** <studio> ************************************/
-/****** </studio> ***********************************/
-/**** <main> ****************************************/
-/**** <footer> **************************************/
-/**** </footer> *************************************/
-/******************************************* max-width: 700px **************************************/
+.story {
+    #characters {
+        h3 {
+            background-image: none;
+        }
+
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+
+        figure {
+            width: 100%;
+            height: auto;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    #place {
+        h3 {
+            background-image: none;
+        }
+
+        background-image: none;
+        display: flex;
+        position: relative;
+        background-image: url("./assets/images/Studio_Koukaki-image_place.png") !important;
+
+        .floating-lieu-nuage-1 {
+            position: absolute;
+            right: 0%;
+            top: 10%;
+            z-index: 2;
+        }
+
+        .floating-lieu-nuage-2 {
+            position: absolute;
+            right: 30%;
+            top: 30%;
+            z-index: 2;
+        }
+    }
+}
+
 .main-navigation {
     ul {
         display: none;
@@ -147,7 +160,7 @@ $background-color_4: transparent;
 
 .menu-overlay {
     a {
-        color: $color_1;
+        color: #070707;
         font-size: 64px;
         font-weight: 400;
         line-height: 84.41px;
@@ -406,7 +419,8 @@ body.menu-open {
 
     a {
         font-size: 12px;
-        font-family: $font-family_1;
+        font-family: "Roboto Mono", monospace;
+        ;
         color: $color_4;
         text-decoration: none;
 
@@ -509,12 +523,13 @@ body.menu-open {
     }
 
     p {
-        font-family: $font-family_2;
+        font-family: Roboto Mono;
         font-size: 15px;
         font-weight: 400;
         line-height: 25px;
         letter-spacing: -0.02em;
         text-align: center;
+        z-index: 10;
     }
 }
 
@@ -537,10 +552,10 @@ body.menu-open {
     }
 
     span {
-        font-family: $font-family_3;
+        font-family: Quicksand;
         font-size: 62px;
         font-weight: 700;
-        line-height: 77.5px;
+        line-height: 77px;
         letter-spacing: -0.02em;
         text-align: left;
         display: inline-block;
@@ -553,42 +568,6 @@ body.menu-open {
 
 .hist-title.visible {
     animation: fadeInUp 1s ease-out forwards;
-}
-
-.story {
-    #characters {
-        width: 100%;
-        height: 100%;
-        min-width: 100%;
-        min-height: 100%;
-
-        figure {
-            width: 100%;
-            height: auto;
-            padding: 0;
-            margin: 0;
-        }
-    }
-
-    #place {
-        display: flex;
-        position: relative;
-        background-image: url("./assets/images/Studio_Koukaki-image_place.png");
-
-        .floating-lieu-nuage-1 {
-            position: absolute;
-            right: 0%;
-            top: 10%;
-            z-index: 2;
-        }
-
-        .floating-lieu-nuage-2 {
-            position: absolute;
-            right: 30%;
-            top: 30%;
-            z-index: 2;
-        }
-    }
 }
 
 #characters {
@@ -604,7 +583,7 @@ body.menu-open {
 }
 
 .bg-style-characters {
-    background-image: url("./assets/images/orange_characters_bg.png");
+    background-image: url("./assets/images/orange_characters_bg.png") !important;
 }
 
 .font-style-characters {
@@ -616,7 +595,6 @@ body.menu-open {
     padding-left: 20%;
     box-sizing: border-box;
     overflow: hidden;
-    min-width: 1400px;
 
     .swiper-slide {
         max-height: 500px;
@@ -648,6 +626,16 @@ body.menu-open {
     h3 {
         animation: move_haut 1s ease-out forwards;
     }
+
+    p {
+        font-family: Roboto Mono;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 25px;
+        letter-spacing: -0.02em;
+        text-align: left;
+        display: inline-block;
+    }
 }
 
 .font-style-place {
@@ -656,7 +644,7 @@ body.menu-open {
 }
 
 .bg-style-place {
-    background-image: url("./assets/images/orange_characters_bg.png");
+    background-image: url("./assets/images/orange_characters_bg.png") !important;
 }
 
 #studio {
@@ -687,10 +675,10 @@ body.menu-open {
     background-color: $background-color_4;
 
     span {
-        font-family: $font-family_3;
+        font-family: Quicksand;
         font-size: 62px;
         font-weight: 700;
-        line-height: 77.5px;
+        line-height: 77px;
         letter-spacing: -0.02em;
         text-align: left;
         display: inline-block;
@@ -738,9 +726,59 @@ body.menu-open {
 }
 
 @media all and (max-width: 700px) {
+    .menu-overlay {
+        a {
+            color: $color_1;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 54.41px;
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 40px;
+            text-decoration: none;
+        }
+
+        display: none;
+        width: 100vw;
+        height: 95vh;
+        background-color: $background-color_3;
+        color: $color_3;
+        z-index: 1001;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        padding: 20px 0px 20px 0px;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin-top: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        li {
+            margin: 15px 0;
+        }
+    }
+
     .site-title-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
         h1 {
             display: none;
+        }
+
+        &:hover {
+            color: $color_2;
+            font-weight: bold;
         }
     }
 
@@ -748,9 +786,167 @@ body.menu-open {
         align-items: center;
     }
 
-    textarea {
-        font-size: 0.8em;
-        line-height: 1.4;
+    .mlogo {
+        text-align: center;
+        width: 150px;
+        height: auto;
+    }
+
+    .mstory {
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 25vw;
+            height: 25vw;
+            top: 50vw;
+            left: 73vw;
+            background-image: url("./assets/images/Sunflower.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 1;
+            animation: rotate_fleur 3s linear infinite 1.5s;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 20vw;
+            height: 20vw;
+            top: 40vw;
+            left: -10vw;
+            background-image: url("./assets/images/orchid.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 1;
+            animation: rotate_fleur 3s linear infinite 1.5s;
+        }
+    }
+
+    .mcharac {
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 18vw;
+            height: 18vw;
+            top: 70vw;
+            left: 20vw;
+            background-image: url("./assets/images/cat.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 1;
+            transform: rotate(-5deg);
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 10vw;
+            height: 10vw;
+            top: 85vw;
+            left: 93vw;
+            gap: 0px;
+            background-image: url("./assets/images/random_flower.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 1;
+            animation: rotate_fleur 3s linear infinite 1.5s;
+            overflow: hidden;
+        }
+    }
+
+    .mplace {
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 10vw;
+            height: 10vw;
+            top: 92vw;
+            left: 10vw;
+            background-image: url("./assets/images/flower.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            border: 0.9px solid transparent;
+            opacity: 1;
+            animation: rotate_fleur 3s linear infinite 1.5s;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 20vw;
+            height: 20vw;
+            top: 105vw;
+            left: 75vw;
+            background-image: url("./assets/images/cat2.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 0px;
+            border-radius: 0px 0px 4px 4px;
+            opacity: 1;
+            animation: floating 3s ease-in-out infinite;
+        }
+    }
+
+    .mstudio {
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 20vw;
+            height: 20vw;
+            top: 140vw;
+            left: 13vw;
+            background-image: url("./assets/images/cat1.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 0px 0px 8px 8px;
+            opacity: 1;
+            transform: rotate(0.51deg);
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 60vw;
+            height: 60vw;
+            top: 85vh;
+            left: 70vw;
+            background-image: url("./assets/images/hibiscus_footer.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 1;
+            animation: rotate_fleur 3s linear infinite 1.5s;
+        }
+    }
+
+    .menu-footer {
+        opacity: 1;
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+
+        a {
+            font-size: 12px;
+            font-family: "Roboto Mono", monospace;
+            ;
+            color: $color_4;
+            text-decoration: none;
+
+            &:hover {
+                color: $color_2;
+            }
+        }
     }
 
     .banner {
@@ -796,69 +992,373 @@ body.menu-open {
         animation: floating 3s ease-in-out infinite;
     }
 
-    .swiper-container {
-        max-width: 700px;
+    .story__article {
+        width: 90vw;
 
-        .swiper-slide {
-            width: 100%;
-            height: 40vw;
-            max-height: 500px;
+        p {
+            width: 85vw;
+            font-family: Roboto Mono;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: -0.02em;
+            text-align: justify;
+            z-index: 10;
         }
     }
 
-    .pagination-character {
-        height: 50px;
-        padding-top: 30px;
-        padding-bottom: 10px;
-        gap: 50px;
-    }
-
-    .title-character {
-        span {
-            font-size: 2rem;
-        }
-    }
-
-    .bg-style-3 {
-        width: 120vw;
-        max-width: 150vw;
-        background-size: contain;
+    .bg-style-hist {
+        background-image: url("./assets/images/purple_title_bg.png");
         background-repeat: no-repeat;
+        background-size: contain;
         background-position: center;
-    }
+        padding: 1em 2em;
+        margin: 0;
+        background-color: $background-color_4;
 
-    #studio {
-        h2 {
-            font-size: 2.3rem;
+        span {
+            font-family: Quicksand;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 77px;
+            letter-spacing: -0.02em;
+            text-align: center;
+            display: inline-block;
         }
     }
 
     .story {
-        #place {
+        #characters {
+            width: 100vw;
+            height: 60vh;
             display: flex;
-            background-image: url("./assets/images/Studio_Koukaki-image_place.png");
-            width: 100%;
-            max-width: 700px;
-            min-height: auto;
-            background-size: cover;
-            aspect-ratio: 2880/1612;
-            background-position: center;
-            background-repeat: no-repeat;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            div {
+                flex: none;
+            }
+
+            figure {
+                width: 75vw;
+                height: auto;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        #place {
+            div {
+                width: 90vw;
+                padding: 30vw 0 0 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    width: 85vw;
+                    margin: 0;
+                }
+
+                p {
+                    padding: 0px !important;
+                    margin: 0px 0 0 0;
+                    width: 85vw;
+                    height: auto;
+                    font-family: Roboto Mono;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 25px;
+                    letter-spacing: -0.02em;
+                    justify-self: center;
+                    text-align: justify;
+                }
+            }
+
+            .floating-lieu-nuage-1 {
+                position: absolute;
+                right: 0%;
+                top: 18%;
+                z-index: 2;
+            }
+
+            .floating-lieu-nuage-2 {
+                position: absolute;
+                right: 15%;
+                top: 25%;
+                z-index: 2;
+            }
+
+            img {
+                width: 20vw;
+            }
+        }
+    }
+
+    .main-character {
+        width: 95vw;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title-character {
+        width: 95vw;
+        height: 25vw;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: move_haut 1s ease-out forwards;
+    }
+
+    .bg-style-characters {
+        width: 85vw;
+        background-image: url("./assets/images/orange_characters_bg.png") !important;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 0px;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .font-style-characters {
+        font-family: Quicksand;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 45px;
+        letter-spacing: -0.02em;
+        text-align: center;
+    }
+
+    .swiper-container {
+        width: 95vw;
+        max-width: 700px;
+        height: 55vh;
+        min-width: 90vw;
+        padding: 0;
+        margin: 0;
+
+        .swiper-slide {
+            all: unset;
+            width: 95vw;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 0;
+            box-sizing: border-box;
             margin: 0;
-            pointer-events: none;
+        }
+    }
+
+    .bg-style-place {
+        background-image: url("./assets/images/orange_characters_bg.png") !important;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 15px;
+    }
+
+    .bg-style-studio {
+        background-image: url("./assets/images/purple_title_bg.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 1em 0em;
+        margin: 0;
+        background-color: $background-color_4;
+    }
+
+    #studio {
+        span {
+            font-family: Quicksand;
+            font-size: 35px;
+            font-weight: 700;
+            line-height: 65px;
+            letter-spacing: -0.02em;
+            text-align: left;
+            display: inline-block;
         }
 
-        .floating-lieu-nuage-1 {
-            animation: none;
-            display: none;
+        h2 {
+            overflow: visible;
         }
 
-        .floating-lieu-nuage-2 {
-            animation: none;
-            display: none;
+        >div {
+            width: 90vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            p {
+                padding: 0px !important;
+                margin: 10px 0 0 0;
+                width: 85vw;
+                height: auto;
+                font-family: Roboto Mono;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 25px;
+                letter-spacing: -0.02em;
+                justify-self: center;
+                text-align: justify;
+            }
         }
+    }
+
+    .site-footer {
+        animation: move_haut 1s ease-out forwards;
+
+        &::before {
+            opacity: 1;
+            animation: rotate_fleur 3s linear infinite 1.5s;
+        }
+
+        &::after {
+            opacity: 1;
+            animation: rotate_fleur 3s linear infinite 1.5s;
+        }
+
+        ul {
+            &::after {
+                opacity: 1;
+                animation: rotate_fleur 3s linear infinite 1.5s;
+            }
+        }
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1192px) {
+
+    // Stylisation des paragraphes dans .story__article
+    .story__article {
+        p {
+            width: 85vw;
+            font-family: Roboto Mono;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: -0.02em;
+            text-align: justify;
+            z-index: 10;
+        }
+    }
+
+    // Stylisation des éléments avec la classe .font-style-characters
+    .font-style-characters {
+        font-family: Quicksand;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 45px;
+        letter-spacing: -0.02em;
+        text-align: center;
+    }
+
+    // Stylisation de la section .story et de son enfant #place
+    .story {
+        #place {
+            div {
+                p {
+                    padding: 0px !important;
+                    margin: 0px 0 0 0;
+                    width: 65vw;
+                    height: auto;
+                    font-family: Roboto Mono;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 25px;
+                    letter-spacing: -0.02em;
+                    justify-self: center;
+                    text-align: justify;
+                }
+            }
+
+            // Positionnement des éléments flottants .floating-lieu-nuage-1 et .floating-lieu-nuage-2
+            .floating-lieu-nuage-1 {
+                position: absolute;
+                right: 1%;
+                top: 18%;
+                z-index: 2;
+                width: 15vw;
+                height: auto;
+            }
+
+            .floating-lieu-nuage-2 {
+                position: absolute;
+                right: 15%;
+                top: 25%;
+                z-index: 2;
+                width: 15vw;
+                height: auto;
+            }
+        }
+    }
+
+    // Stylisation des paragraphes dans #studio
+    #studio {
+        div {
+            p {
+                padding: 0px !important;
+                margin: 10px 0 0 0;
+                width: 65vw;
+                height: auto;
+                font-family: Roboto Mono;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 25px;
+                letter-spacing: -0.02em;
+                justify-self: center;
+                text-align: justify;
+            }
+        }
+
+        // S'assure que les titres h2 n'ont pas de débordement
+        h2 {
+            overflow: visible;
+        }
+    }
+
+    // Stylisation du conteneur du titre du site
+    .site-title-container {
+        h1 {
+            flex: 1;
+            text-align: center;
+            font-size: 1.5em;
+            align-items: center;
+            padding: 15px;
+            margin: 5px;
+        }
+    }
+
+    // Modification de la marge de l'image dans le .banner
+    .banner {
+        img {
+            margin-top: 0%;
+        }
+    }
+
+    // Configuration de la hauteur du conteneur de l'effet parallax
+    .parallax-container {
+        height: 80vh;
+    }
+
+    // Ajout de padding à gauche dans le conteneur swiper
+    .swiper-container {
+        padding-left: 2%;
     }
 }
