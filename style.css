@@ -111,6 +111,7 @@
   z-index: 2;
 }
 
+/* Masquer tout le menu existant */
 .main-navigation {
   display: flex;
   align-items: center;
@@ -180,6 +181,7 @@
   font-weight: bold;
 }
 
+/***************** DEBUT menu burger ****************/
 .burger-menu {
   cursor: pointer;
   display: flex;
@@ -344,6 +346,7 @@ body.menu-open .menu-overlay {
   animation: rotate_fleur 3s linear infinite 1.5s;
 }
 
+/**** <footer> **************************************/
 .menu-footer {
   opacity: 1;
   position: absolute;
@@ -362,6 +365,7 @@ body.menu-open .menu-overlay {
   color: #ff8c42;
 }
 
+/****** <slider:banner> *****************************/
 .banner {
   opacity: 0;
   transition: opacity 2s ease-out, transform 5s ease-out;
@@ -380,6 +384,7 @@ body.menu-open .menu-overlay {
   background-image: none;
 }
 
+/******** <video> ***********************************/
 .video-container {
   position: absolute;
   top: 0;
@@ -461,6 +466,7 @@ body.menu-open .menu-overlay {
   z-index: 10;
 }
 
+/****** <Article Histoire> **************************/
 .bg-style-hist {
   background-image: url("./assets/images/purple_title_bg.png");
   background-repeat: no-repeat;
@@ -629,6 +635,7 @@ body.menu-open .menu-overlay {
   animation: rotate_fleur 3s linear infinite 1.5s;
 }
 
+/*******************************mobile************ max-width: 700px **************************************/
 @media all and (max-width: 700px) {
   .menu-overlay {
     display: none;
@@ -687,6 +694,7 @@ body.menu-open .menu-overlay {
     width: 150px;
     height: auto;
   }
+  /****** <story> *************************************/
   .mstory::after {
     content: "";
     position: absolute;
@@ -912,6 +920,9 @@ body.menu-open .menu-overlay {
     justify-content: center;
     align-items: center;
   }
+  .story #place {
+    /****** <Article lieu> *****************************/
+  }
   .story #place div {
     width: 90vw;
     padding: 30vw 0 0 0;
@@ -1010,6 +1021,7 @@ body.menu-open .menu-overlay {
     box-sizing: border-box;
     margin: 0;
   }
+  /****** <studio> ************************************/
   .bg-style-place {
     background-image: url("./assets/images/orange_characters_bg.png") !important;
     background-size: contain;
@@ -1074,6 +1086,7 @@ body.menu-open .menu-overlay {
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
 }
+/*******************************tablette************ max-width: 1192px *** min-width: 701px **************************************/
 @media (min-width: 701px) and (max-width: 1192px) {
   .story__article p {
     width: 85vw;

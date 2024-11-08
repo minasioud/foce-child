@@ -147,6 +147,7 @@ $background-color_4: transparent;
     }
 }
 
+/* Masquer tout le menu existant */
 .main-navigation {
     ul {
         display: none;
@@ -223,6 +224,7 @@ $background-color_4: transparent;
     }
 }
 
+/***************** DEBUT menu burger ****************/
 .burger-menu {
     cursor: pointer;
     display: flex;
@@ -409,6 +411,7 @@ body.menu-open {
     }
 }
 
+/**** <footer> **************************************/
 .menu-footer {
     opacity: 1;
     position: absolute;
@@ -430,6 +433,7 @@ body.menu-open {
     }
 }
 
+/****** <slider:banner> *****************************/
 .banner {
     opacity: 0;
     transition: opacity 2s ease-out, transform 5s ease-out;
@@ -449,6 +453,7 @@ body.menu-open {
     background-image: none;
 }
 
+/******** <video> ***********************************/
 .video-container {
     position: absolute;
     top: 0;
@@ -533,6 +538,7 @@ body.menu-open {
     }
 }
 
+/****** <Article Histoire> **************************/
 .bg-style-hist {
     background-image: url("./assets/images/purple_title_bg.png");
     background-repeat: no-repeat;
@@ -725,6 +731,7 @@ body.menu-open {
     }
 }
 
+/*******************************mobile************ max-width: 700px **************************************/
 @media all and (max-width: 700px) {
     .menu-overlay {
         a {
@@ -792,6 +799,7 @@ body.menu-open {
         height: auto;
     }
 
+    /****** <story> *************************************/
     .mstory {
         &::after {
             content: "";
@@ -1081,6 +1089,7 @@ body.menu-open {
                 }
             }
 
+            /****** <Article lieu> *****************************/
             .floating-lieu-nuage-1 {
                 position: absolute;
                 right: 0%;
@@ -1165,6 +1174,7 @@ body.menu-open {
         }
     }
 
+    /****** <studio> ************************************/
     .bg-style-place {
         background-image: url("./assets/images/orange_characters_bg.png") !important;
         background-size: contain;
@@ -1243,6 +1253,7 @@ body.menu-open {
     }
 }
 
+/*******************************tablette************ max-width: 1192px *** min-width: 701px **************************************/
 @media (min-width: 701px) and (max-width: 1192px) {
 
     // Stylisation des paragraphes dans .story__article
