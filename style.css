@@ -1165,7 +1165,7 @@ body.menu-open .menu-overlay {
   .parallax-container {
     height: 80vh;
   }
-  .swiper-container {
+  div .swiper-container {
     padding-left: 2%;
   }
 }/*# sourceMappingURL=style.css.map */
