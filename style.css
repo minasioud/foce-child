@@ -3,130 +3,107 @@
     opacity: 0;
     transform: translateY(-80px);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes move_haut {
   0% {
     transform: translateY(25vh);
   }
-
   100% {
     transform: translateY(0);
   }
 }
-
 @keyframes text_move_haut {
   0% {
     opacity: 0;
     transform: translateY(25vh);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes rotate_fleur {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(-360deg);
   }
 }
-
 @keyframes bg_place_move_haut {
   0% {
     transform: translateY(5vh);
   }
-
   100% {
     transform: translateY(0);
   }
 }
-
 /* Keyframes pour l'animation de fadeInUp */
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(35vh);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 @keyframes floating {
   0% {
     transform: translate(-50%, -50%) translateY(0);
   }
-
   50% {
     transform: translate(-50%, -50%) translateY(-10px);
   }
-
   100% {
     transform: translate(-50%, -50%) translateY(0);
   }
 }
-
 @keyframes fadeInUpstudio {
   from {
     opacity: 0;
     transform: translateY(15vh);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 .story #characters {
   width: 100%;
   height: 100%;
   min-width: 100%;
   min-height: 100%;
 }
-
 .story #characters h3 {
   background-image: none;
 }
-
 .story #characters figure {
   width: 100%;
   height: auto;
   padding: 0;
   margin: 0;
 }
-
 .story #place {
   background-image: none;
   display: flex;
   position: relative;
   background-image: url("./assets/images/Studio_Koukaki-image_place.png") !important;
 }
-
 .story #place h3 {
   background-image: none;
 }
-
 .story #place .floating-lieu-nuage-1 {
   position: absolute;
   right: 0%;
   top: 10%;
   z-index: 2;
 }
-
 .story #place .floating-lieu-nuage-2 {
   position: absolute;
   right: 30%;
@@ -141,7 +118,6 @@
   justify-content: space-between;
   padding: 10px 20px;
 }
-
 .main-navigation ul {
   display: none;
 }
@@ -161,7 +137,6 @@
   box-sizing: border-box;
   overflow: hidden;
 }
-
 .menu-overlay a {
   color: #070707;
   font-size: 64px;
@@ -173,20 +148,17 @@
   line-height: 80px;
   text-decoration: none;
 }
-
 .menu-overlay a:hover {
   color: #070707;
   text-shadow: 2px 2px 5px rgba(255, 92, 0, 0.5);
   text-decoration: none;
 }
-
 .menu-overlay ul {
   list-style: none;
   padding: 0;
   text-align: center;
   margin-top: 0;
 }
-
 .menu-overlay li {
   margin: 15px 0;
 }
@@ -196,7 +168,6 @@
   left: 50%;
   transform: translateX(-50%);
 }
-
 .site-title-container h1 {
   flex: 1;
   text-align: center;
@@ -205,7 +176,6 @@
   padding: 5px;
   margin: 5px;
 }
-
 .site-title-container:hover {
   color: #ff8c42;
   font-weight: bold;
@@ -223,7 +193,6 @@
   background-color: #FFD5A2;
   color: #070707;
 }
-
 .burger-menu span {
   display: block;
   width: 35px;
@@ -236,15 +205,12 @@
 body.menu-open .burger-menu span:nth-child(1) {
   transform: rotate(45deg) translate(7px, 7px);
 }
-
 body.menu-open .burger-menu span:nth-child(2) {
   opacity: 0;
 }
-
 body.menu-open .burger-menu span:nth-child(3) {
   transform: rotate(-45deg) translate(10px, -10px);
 }
-
 body.menu-open .menu-overlay {
   display: flex;
   opacity: 1;
@@ -270,7 +236,6 @@ body.menu-open .menu-overlay {
   opacity: 1;
   animation: rotate_fleur 3s linear infinite 1.5s;
 }
-
 .mstory::before {
   content: "";
   position: absolute;
@@ -301,7 +266,6 @@ body.menu-open .menu-overlay {
   transform: rotate(-5deg);
   animation: floating 3s ease-in-out infinite;
 }
-
 .mcharac::before {
   content: "";
   position: absolute;
@@ -334,7 +298,6 @@ body.menu-open .menu-overlay {
   opacity: 1;
   animation: rotate_fleur 3s linear infinite 1.5s;
 }
-
 .mplace::before {
   content: "";
   position: absolute;
@@ -368,7 +331,6 @@ body.menu-open .menu-overlay {
   transform: rotate(0.51deg);
   animation: floating 3s ease-in-out infinite;
 }
-
 .mstudio::before {
   content: "";
   position: absolute;
@@ -393,14 +355,12 @@ body.menu-open .menu-overlay {
   text-align: center;
   padding-bottom: 20px;
 }
-
 .menu-footer a {
   font-size: 12px;
   font-family: "Roboto Mono", monospace;
   color: #000000;
   text-decoration: none;
 }
-
 .menu-footer a:hover {
   color: #ff8c42;
 }
@@ -410,7 +370,6 @@ body.menu-open .menu-overlay {
   opacity: 0;
   transition: opacity 2s ease-out, transform 5s ease-out;
 }
-
 .banner img.banner_logo {
   animation: move_haut 1s ease-out forwards;
 }
@@ -490,16 +449,13 @@ body.menu-open .menu-overlay {
 .story__article {
   background-color: transparent;
 }
-
 .story__article::after {
   opacity: 1;
   animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
 }
-
 .story__article::before {
   animation: move_haut 1s ease-out forwards;
 }
-
 .story__article p {
   font-family: Roboto Mono;
   font-size: 15px;
@@ -520,16 +476,13 @@ body.menu-open .menu-overlay {
   margin: 0;
   background-color: transparent;
 }
-
 .bg-style-hist::after {
   opacity: 1;
   animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
 }
-
 .bg-style-hist::before {
   animation: move_haut 1s ease-out forwards;
 }
-
 .bg-style-hist span {
   font-family: Quicksand;
   font-size: 62px;
@@ -572,7 +525,6 @@ body.menu-open .menu-overlay {
   box-sizing: border-box;
   overflow: hidden;
 }
-
 .swiper-container .swiper-slide {
   max-height: 500px;
   width: 100%;
@@ -583,7 +535,6 @@ body.menu-open .menu-overlay {
   width: auto;
   opacity: 1;
 }
-
 .swiper-container .swiper-slide img {
   display: block;
   width: 100%;
@@ -601,7 +552,6 @@ body.menu-open .menu-overlay {
 #place h3 {
   animation: move_haut 1s ease-out forwards;
 }
-
 #place p {
   font-family: Roboto Mono;
   font-size: 15px;
@@ -624,11 +574,9 @@ body.menu-open .menu-overlay {
 #studio h2::before {
   animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
 }
-
 #studio h2::after {
   animation: move_haut 1s ease-out forwards, rotate_fleur 3s linear infinite 1.5s;
 }
-
 #studio div::before {
   animation: move_haut 1s ease-out forwards;
 }
@@ -642,7 +590,6 @@ body.menu-open .menu-overlay {
   margin: 0;
   background-color: transparent;
 }
-
 .bg-style-studio span {
   font-family: Quicksand;
   font-size: 62px;
@@ -675,17 +622,14 @@ body.menu-open .menu-overlay {
 .site-footer {
   animation: move_haut 1s ease-out forwards;
 }
-
 .site-footer::before {
   opacity: 1;
   animation: rotate_fleur 3s linear infinite 1.5s;
 }
-
 .site-footer::after {
   opacity: 1;
   animation: rotate_fleur 3s linear infinite 1.5s;
 }
-
 .site-footer ul::after {
   opacity: 1;
   animation: rotate_fleur 3s linear infinite 1.5s;
@@ -708,7 +652,6 @@ body.menu-open .menu-overlay {
     box-sizing: border-box;
     overflow: hidden;
   }
-
   .menu-overlay a {
     color: #070707;
     font-size: 24px;
@@ -720,7 +663,6 @@ body.menu-open .menu-overlay {
     line-height: 40px;
     text-decoration: none;
   }
-
   .menu-overlay ul {
     list-style: none;
     padding: 0;
@@ -729,36 +671,29 @@ body.menu-open .menu-overlay {
     margin: 0;
     width: 100%;
   }
-
   .menu-overlay li {
     margin: 15px 0;
   }
-
   .site-title-container {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
-
   .site-title-container h1 {
     display: none;
   }
-
   .site-title-container:hover {
     color: #ff8c42;
     font-weight: bold;
   }
-
   .burger-menu {
     align-items: center;
   }
-
   .mlogo {
     text-align: center;
     width: 150px;
     height: auto;
   }
-
   /****** <story> *************************************/
   .mstory::after {
     content: "";
@@ -774,7 +709,6 @@ body.menu-open .menu-overlay {
     opacity: 1;
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
-
   .mstory::before {
     content: "";
     position: absolute;
@@ -789,7 +723,6 @@ body.menu-open .menu-overlay {
     opacity: 1;
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
-
   .mcharac::after {
     content: "";
     position: absolute;
@@ -805,7 +738,6 @@ body.menu-open .menu-overlay {
     transform: rotate(-5deg);
     animation: floating 3s ease-in-out infinite;
   }
-
   .mcharac::before {
     content: "";
     position: absolute;
@@ -822,7 +754,6 @@ body.menu-open .menu-overlay {
     animation: rotate_fleur 3s linear infinite 1.5s;
     overflow: hidden;
   }
-
   .mplace::after {
     content: "";
     position: absolute;
@@ -838,7 +769,6 @@ body.menu-open .menu-overlay {
     opacity: 1;
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
-
   .mplace::before {
     content: "";
     position: absolute;
@@ -855,7 +785,6 @@ body.menu-open .menu-overlay {
     opacity: 1;
     animation: floating 3s ease-in-out infinite;
   }
-
   .mstudio::after {
     content: "";
     position: absolute;
@@ -872,7 +801,6 @@ body.menu-open .menu-overlay {
     transform: rotate(0.51deg);
     animation: floating 3s ease-in-out infinite;
   }
-
   .mstudio::before {
     content: "";
     position: absolute;
@@ -887,7 +815,6 @@ body.menu-open .menu-overlay {
     opacity: 1;
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
-
   .menu-footer {
     opacity: 1;
     position: absolute;
@@ -896,18 +823,15 @@ body.menu-open .menu-overlay {
     text-align: center;
     padding-bottom: 20px;
   }
-
   .menu-footer a {
     font-size: 12px;
     font-family: "Roboto Mono", monospace;
     color: #000000;
     text-decoration: none;
   }
-
   .menu-footer a:hover {
     color: #ff8c42;
   }
-
   .banner {
     width: 100%;
     max-width: 700px;
@@ -923,38 +847,30 @@ body.menu-open .menu-overlay {
     margin: 0;
     pointer-events: none;
   }
-
   .banner .banner-image {
     width: 100%;
     height: auto;
   }
-
   .mobile-banner-image {
     display: block;
   }
-
   .parallax-container {
     display: none;
   }
-
   .parallax-video {
     display: none;
   }
-
   #background-video {
     display: none;
   }
-
   .floating-title {
     top: 60%;
     font-size: 3rem;
     animation: floating 3s ease-in-out infinite;
   }
-
   .story__article {
     width: 90vw;
   }
-
   .story__article p {
     width: 85vw;
     font-family: Roboto Mono;
@@ -965,7 +881,6 @@ body.menu-open .menu-overlay {
     text-align: justify;
     z-index: 10;
   }
-
   .bg-style-hist {
     background-image: url("./assets/images/purple_title_bg.png");
     background-repeat: no-repeat;
@@ -975,7 +890,6 @@ body.menu-open .menu-overlay {
     margin: 0;
     background-color: transparent;
   }
-
   .bg-style-hist span {
     font-family: Quicksand;
     font-size: 42px;
@@ -985,7 +899,6 @@ body.menu-open .menu-overlay {
     text-align: center;
     display: inline-block;
   }
-
   .story #characters {
     width: 100vw;
     height: 60vh;
@@ -994,11 +907,9 @@ body.menu-open .menu-overlay {
     justify-content: center;
     align-items: center;
   }
-
   .story #characters div {
     flex: none;
   }
-
   .story #characters figure {
     width: 75vw;
     height: auto;
@@ -1009,11 +920,9 @@ body.menu-open .menu-overlay {
     justify-content: center;
     align-items: center;
   }
-
   .story #place {
     /****** <Article lieu> *****************************/
   }
-
   .story #place div {
     width: 90vw;
     padding: 30vw 0 0 0;
@@ -1022,12 +931,10 @@ body.menu-open .menu-overlay {
     justify-content: center;
     align-items: center;
   }
-
   .story #place div h3 {
     width: 85vw;
     margin: 0;
   }
-
   .story #place div p {
     padding: 0px !important;
     margin: 0px 0 0 0;
@@ -1041,25 +948,21 @@ body.menu-open .menu-overlay {
     justify-self: center;
     text-align: justify;
   }
-
   .story #place .floating-lieu-nuage-1 {
     position: absolute;
     right: 0%;
     top: 18%;
     z-index: 2;
   }
-
   .story #place .floating-lieu-nuage-2 {
     position: absolute;
     right: 15%;
     top: 25%;
     z-index: 2;
   }
-
   .story #place img {
     width: 20vw;
   }
-
   .main-character {
     width: 95vw;
     height: 70vh;
@@ -1067,7 +970,6 @@ body.menu-open .menu-overlay {
     flex-direction: column;
     align-items: center;
   }
-
   .title-character {
     width: 95vw;
     height: 25vw;
@@ -1079,7 +981,6 @@ body.menu-open .menu-overlay {
     align-items: center;
     animation: move_haut 1s ease-out forwards;
   }
-
   .bg-style-characters {
     width: 85vw;
     background-image: url("./assets/images/orange_characters_bg.png") !important;
@@ -1092,7 +993,6 @@ body.menu-open .menu-overlay {
     align-items: center;
     justify-content: center;
   }
-
   .font-style-characters {
     font-family: Quicksand;
     font-size: 22px;
@@ -1101,7 +1001,6 @@ body.menu-open .menu-overlay {
     letter-spacing: -0.02em;
     text-align: center;
   }
-
   .swiper-container {
     width: 95vw;
     max-width: 700px;
@@ -1110,7 +1009,6 @@ body.menu-open .menu-overlay {
     padding: 0;
     margin: 0;
   }
-
   .swiper-container .swiper-slide {
     all: unset;
     width: 95vw;
@@ -1123,7 +1021,6 @@ body.menu-open .menu-overlay {
     box-sizing: border-box;
     margin: 0;
   }
-
   /****** <studio> ************************************/
   .bg-style-place {
     background-image: url("./assets/images/orange_characters_bg.png") !important;
@@ -1132,7 +1029,6 @@ body.menu-open .menu-overlay {
     background-position: center;
     padding: 15px;
   }
-
   .bg-style-studio {
     background-image: url("./assets/images/purple_title_bg.png");
     background-repeat: no-repeat;
@@ -1142,7 +1038,6 @@ body.menu-open .menu-overlay {
     margin: 0;
     background-color: transparent;
   }
-
   #studio span {
     font-family: Quicksand;
     font-size: 35px;
@@ -1152,20 +1047,17 @@ body.menu-open .menu-overlay {
     text-align: left;
     display: inline-block;
   }
-
   #studio h2 {
     overflow: visible;
   }
-
-  #studio>div {
+  #studio > div {
     width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
-  #studio>div p {
+  #studio > div p {
     padding: 0px !important;
     margin: 10px 0 0 0;
     width: 85vw;
@@ -1178,27 +1070,22 @@ body.menu-open .menu-overlay {
     justify-self: center;
     text-align: justify;
   }
-
   .site-footer {
     animation: move_haut 1s ease-out forwards;
   }
-
   .site-footer::before {
     opacity: 1;
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
-
   .site-footer::after {
     opacity: 1;
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
-
   .site-footer ul::after {
     opacity: 1;
     animation: rotate_fleur 3s linear infinite 1.5s;
   }
 }
-
 /*******************************tablette************ max-width: 1192px *** min-width: 701px **************************************/
 @media (min-width: 701px) and (max-width: 1192px) {
   .story__article p {
@@ -1211,7 +1098,6 @@ body.menu-open .menu-overlay {
     text-align: justify;
     z-index: 10;
   }
-
   .font-style-characters {
     font-family: Quicksand;
     font-size: 22px;
@@ -1220,7 +1106,6 @@ body.menu-open .menu-overlay {
     letter-spacing: -0.02em;
     text-align: center;
   }
-
   .story #place div p {
     padding: 0px !important;
     margin: 0px 0 0 0;
@@ -1234,7 +1119,6 @@ body.menu-open .menu-overlay {
     justify-self: center;
     text-align: justify;
   }
-
   .story #place .floating-lieu-nuage-1 {
     position: absolute;
     right: 1%;
@@ -1243,7 +1127,6 @@ body.menu-open .menu-overlay {
     width: 15vw;
     height: auto;
   }
-
   .story #place .floating-lieu-nuage-2 {
     position: absolute;
     right: 15%;
@@ -1252,7 +1135,6 @@ body.menu-open .menu-overlay {
     width: 15vw;
     height: auto;
   }
-
   #studio div p {
     padding: 0px !important;
     margin: 10px 0 0 0;
@@ -1266,11 +1148,9 @@ body.menu-open .menu-overlay {
     justify-self: center;
     text-align: justify;
   }
-
   #studio h2 {
     overflow: visible;
   }
-
   .site-title-container h1 {
     flex: 1;
     text-align: center;
@@ -1279,18 +1159,39 @@ body.menu-open .menu-overlay {
     padding: 15px;
     margin: 5px;
   }
-
   .banner img {
     margin-top: 0%;
   }
-
   .parallax-container {
     height: 80vh;
   }
-
-  div .swiper-container {
-    padding-left: 2%;
+  .story #characters {
+    margin: 0em;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+  .main-character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .title-character {
+    align-self: flex-start;
+  }
+  .swiper-wrapper {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0%;
+  }
+  .swiper-container {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 35%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}/*# sourceMappingURL=style.css.map */

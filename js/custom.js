@@ -126,8 +126,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         depth: 0, // Diminue la profondeur de l'effet sur mobile
                     },
                 },
-                // Configuration pour les écrans plus grands que 701px
+                // Configuration pour les écrans tablettes 701px -> 1192px
                 701: {
+                    slidesPerView: 'auto', // Affiche plusieurs diapositives
+                    spaceBetween: 10, // Espace entre les diapositives pour un affichage plus espacé
+                    centeredSlides: false, // Désactive le centrage
+                    coverflowEffect: {
+                        rotate: 30, // Angle de rotation plus prononcé
+                        depth: 100, // Proximité des diapositives
+                    },
+                },
+                // Configuration pour les écrans plus grands que 1193px
+                1193: {
                     slidesPerView: 'auto', // Affiche plusieurs diapositives
                     spaceBetween: 50, // Espace entre les diapositives pour un affichage plus espacé
                     centeredSlides: false, // Désactive le centrage

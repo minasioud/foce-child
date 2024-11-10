@@ -55,7 +55,7 @@ get_header();
                         <h3 class="bg-style-characters"><span class="font-style-characters">Les personnages</span></h3>
                     </div>
                     <!-- Begin Swiper Container -->    
-                    <div class="swiper-container">
+                    <div id="div-char" class="swiper-container">
                         <div class="swiper-wrapper">
                             <?php while ($characters_query->have_posts()) {
                                 $characters_query->the_post(); ?>

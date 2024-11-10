@@ -1,13 +1,16 @@
-$color_1: #070707;
-$color_2: #ff8c42;
-$color_3: rgb(3, 3, 3);
-$color_4: #000000;
-$color_5: white;
+// Définition des couleurs principales
+$color_1: #070707; // Couleur principale (noir)
+$color_2: #ff8c42; // Couleur secondaire (orange)
+$color_3: rgb(3, 3, 3); // Couleur RGB (presque noir)
+$color_4: #000000; // Couleur noire
+$color_5: white; // Couleur blanche
 
-$background-color_1: #FFD5A2;
-$background-color_2: #333;
-$background-color_3: #FFF5E9;
-$background-color_4: transparent;
+// Définition des couleurs de fond
+$background-color_1: #FFD5A2; // Fond couleur pêche clair
+$background-color_2: #333; // Fond couleur gris foncé
+$background-color_3: #FFF5E9; // Fond couleur crème claire
+$background-color_4: transparent; // Fond transparent
+
 
 @keyframes mouve_bas {
     0% {
@@ -161,7 +164,7 @@ $background-color_4: transparent;
 
 .menu-overlay {
     a {
-        color: #070707;
+        color: $color_1;
         font-size: 64px;
         font-weight: 400;
         line-height: 84.41px;
@@ -1368,8 +1371,40 @@ body.menu-open {
         height: 80vh;
     }
 
-    // Ajout de padding à gauche dans le conteneur swiper
-    div .swiper-container {
-        padding-left: 2%;
+    .story {
+        #characters {
+            margin: 0em;
+        }
+    }
+
+    .main-character {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title-character {
+        align-self: flex-start; // Aligne le titre au début de son conteneur
+    }
+
+    // Style pour le wrapper de swiper
+    .swiper-wrapper {
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0%;
+    }
+
+    .swiper-container {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 35%;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 }
